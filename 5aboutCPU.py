@@ -18,6 +18,7 @@ for p in disk :
 
 
 count = 0
+prev_sent, prev_recv = 0,0
 while True : 
   cpu_p = psutil.cpu_percent(interval=1)
   print(f'cpu사용량 : {cpu_p}%')
@@ -28,10 +29,12 @@ while True :
   net = psutil.net_io_counters() #데이터를 통해 보내고 받은 데이터량
   sent = round(net.bytes_sent/1024**2,1)
   recv = round(net.bytes_recv/1024**2,1)
-  print(f'보내기: {sent}MB, 받기: {recv}MB')
+  print(f'보내기: {sent-prev_sent}MB, 받기: {recv-prev_recv}MB')
+  prev_sent = sent
+  prev_recv = recv
 
   count += 1
-  if count >=10 :
+  if count >=3 :
     break
 
 
