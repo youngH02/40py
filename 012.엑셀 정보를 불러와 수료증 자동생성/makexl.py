@@ -7,7 +7,5 @@ df = pd.DataFrame([["학생1","1990.01.01","0001"],
 ["학생4","1994.01.01","0004"]])
 
 print(df)
-pwd = os.getcwd()
-print(pwd)
 df.to_excel(r'12.엑셀 정보를 불러와 수료증 자동생성/studentList.xlsx', index=False, header =False)
 

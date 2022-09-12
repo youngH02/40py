@@ -6,7 +6,6 @@ from math import degrees
 from openpyxl import load_workbook
 import os
 
-
 os.chdir('/Users/jyoung/study/40py/12.엑셀 정보를 불러와 수료증 자동생성/')
 load_wb = load_workbook(r'studentList.xlsx')
 load_wb = load_wb.active
